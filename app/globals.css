@@ -1,1 +1,25 @@
-/* Global Styles */
+.global {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+header {
+  background: #0070f3;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+footer {
+  background: #0070f3;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
