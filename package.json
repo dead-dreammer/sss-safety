@@ -1,1 +1,18 @@
-{\n  "name": "sss-safety",\n  "version": "0.1.0",\n  "private": true,\n  "scripts": {\n    "dev": "next dev",\n    "build": "next build",\n    "start": "next start",\n    "lint": "next lint"\n  },\n  "dependencies": {\n    "react": "^18.2.0",\n    "react-dom": "^18.2.0",\n    "next": "^14.0.0"\n  },\n  "devDependencies": {\n    "typescript": "^5.0.0",\n    "@types/node": "^20.0.0",\n    "@types/react": "^18.0.0",\n    "@types/react-dom": "^18.0.0",\n    "eslint": "^8.0.0",\n    "eslint-config-next": "^14.0.0"\n  }\n}
+{ "name": "sss-safety",
+"version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"},
+"dependencies": {"react": "^18.2.0",
+"react-dom": "^18.2.0",
+"next": "^14.0.0"},
+"devDependencies": {"typescript": "^5.0.0",
+"@types/node": "^20.0.0",
+"@types/react": "^18.0.0",
+"@types/react-dom": "^18.0.0",
+"eslint": "^8.0.0",
+"eslint-config-next": "^14.0.0"}
+}

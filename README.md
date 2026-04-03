@@ -1,17 +1,53 @@
-# Next.js Safety Wear Website
+# SSS Safety Solutions - Mock Website
 
-Welcome to the Next.js Safety Wear Website! This platform is dedicated to providing the best safety wear solutions for various industries. Our aim is to ensure the safety and comfort of our users while they perform their daily tasks.
+A modern, responsive mock website for SSS Safety Solutions built with Next.js, featuring a clean design with primary colors: orange, black, and white.
 
 ## Features
-- **User-friendly Interface**: A clean and modern design that is easy to navigate.
-- **Product Range**: A comprehensive collection of safety wear, including helmets, gloves, vests, and more.
-- **Secure Ordering**: Enjoy a secure checkout process with multiple payment options.
-- **Responsive Design**: Fully responsive design, optimized for smartphones, tablets, and desktops.
+
+- **Modern Design**: Clean, professional layout with orange, black, and white color scheme
+- **Responsive Grid**: Product grid that adapts to different screen sizes
+- **Component-Based Architecture**: Modular React components for easy maintenance
+- **TypeScript**: Full type safety throughout the application
+- **Next.js 14**: Latest Next.js features with App Router
+
+## Color Scheme
+
+- **Primary Orange**: #ff6b35 - Used for accents, buttons, and hero section
+- **Black**: #000000 - Used for text and footer
+- **White**: #ffffff - Used for backgrounds and text on dark elements
+
+## Components
+
+- **Header**: Navigation bar with company branding
+- **Hero**: Eye-catching hero section with call-to-action
+- **ProductGrid**: Responsive grid displaying safety products
+- **ProductCard**: Individual product display with image, title, and price
+- **Footer**: Contact information and copyright
 
 ## Getting Started
-To get started with our website, simply browse through our product range, add your selected items to the cart, and proceed to checkout.
 
-## Contact Us
-For inquiries, please reach out via our contact page.
+1. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
-Thank you for choosing us for your safety wear needs!
+2. Run the development server:
+   ```bash
+   pnpm dev
+   ```
+
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Build
+
+To build for production:
+```bash
+pnpm build
+```
+
+## Technologies Used
+
+- Next.js 14
+- React 18
+- TypeScript
+- CSS Modules (with CSS variables for theming)

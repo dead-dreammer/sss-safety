@@ -1,3 +1,17 @@
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import ProductGrid from '../components/ProductGrid';
+import Footer from '../components/Footer';
+
 export default function Home() {
-    return <h1>Welcome to the Home Page</h1>;
+    return (
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <Header />
+            <Hero />
+            <main className="container">
+                <ProductGrid />
+            </main>
+            <Footer />
+        </div>
+    );
 }
