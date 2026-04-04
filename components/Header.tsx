@@ -1,17 +1,24 @@
 import React from 'react';
+import Link from 'next/link';
+import NavLinks from './NavLinks';
+import NavActions from './NavActions';
 
 const Header = () => {
+    const navLinks = [
+        { href: '/products', label: 'EQUIPMENT', active: true },
+        { href: '#protocols', label: 'PROTOCOLS' },
+        { href: '#training', label: 'TRAINING' },
+        { href: '#resources', label: 'RESOURCES' },
+    ];
+
     return (
-        <header>
-            <div className="container">
-                <h1>SSS Safety Solutions</h1>
-                <nav>
-                    <a href="#home" style={{ color: 'var(--primary-white)', margin: '0 15px', textDecoration: 'none' }}>Home</a>
-                    <a href="#products" style={{ color: 'var(--primary-white)', margin: '0 15px', textDecoration: 'none' }}>Products</a>
-                    <a href="#contact" style={{ color: 'var(--primary-white)', margin: '0 15px', textDecoration: 'none' }}>Contact</a>
-                </nav>
+        <nav className="fixed top-0 w-full z-50 bg-white/40 backdrop-blur-xl flex justify-between items-center px-8 py-6">
+            <div className="flex items-center gap-12">
+                <Link href="/" className="text-2xl font-black text-black tracking-tighter uppercase font-headline">SSS SAFETY</Link>
+                <NavLinks links={navLinks} />
             </div>
-        </header>
+            <NavActions />
+        </nav>
     );
 };
 

@@ -7,11 +7,13 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return (
-        <div className="product-card">
+        <div className="category-card">
             <img src={`/images/${product.image}`} alt={product.title} />
-            <h3>{product.title}</h3>
-            <p>R{product.price}</p>
-            <button className="btn">Add to Cart</button>
+            <div className="category-label">
+                <h3>{product.title}</h3>
+                <p className="text-orange-400 font-bold">R{product.price}</p>
+                <button className="btn mt-2">Add to Cart</button>
+            </div>
         </div>
     );
 };
