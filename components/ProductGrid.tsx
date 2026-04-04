@@ -4,7 +4,7 @@ import { products } from '../data/products';
 
 const ProductGrid = () => {
     return (
-        <div className="product-grid">
+        <div className="category-grid">
             {products.map(product => (
                 <ProductCard key={product.id} product={product} />
             ))}
