@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '../../lib/auth';
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
-import AdminSidebar from '../../components/admin/AdminSidebar';
+import Link from 'next/link';
 
 export const metadata = { title: 'Admin — SSS Safety' };
 
@@ -13,58 +13,20 @@ export default async function AdminLayout({ children }: { children: ReactNode })
         redirect('/');
     }
 
-    const name = session.user?.name;
-    const email = session.user?.email;
-    const initial = (name ?? email ?? 'A')[0].toUpperCase();
-
     return (
-        <div style={{ display: 'flex', minHeight: '100vh', background: '#0d0d0d', color: 'white' }}>
-            <AdminSidebar email={email} name={name} />
-
-            <div style={{ marginLeft: '260px', flex: 1, display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-                {/* Top bar */}
-                <header style={{
-                    height: '60px',
-                    background: '#0a0a0a',
-                    borderBottom: '1px solid rgba(255,255,255,0.06)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-end',
-                    padding: '0 2.5rem',
-                    position: 'sticky',
-                    top: 0,
-                    zIndex: 5,
-                    gap: '1rem',
-                }}>
-                    <div style={{ textAlign: 'right' }}>
-                        <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.8rem', color: 'rgba(255,255,255,0.8)' }}>
-                            {name ?? email}
-                        </div>
-                        <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.58rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--primary-fixed)', marginTop: '0.1rem' }}>
-                            Administrator
-                        </div>
-                    </div>
-                    <div style={{
-                        width: '34px',
-                        height: '34px',
-                        background: 'var(--primary-fixed)',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                    }}>
-                        <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, fontSize: '0.95rem', color: '#000' }}>
-                            {initial}
-                        </span>
-                    </div>
-                </header>
-
-                {/* Page content */}
-                <main style={{ flex: 1, padding: '2.5rem 3rem' }}>
-                    {children}
-                </main>
+        <main style={{ minHeight: '100vh', background: '#0d0d0d', color: 'white' }}>
+            <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '3rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+                    <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--primary-fixed)' }}>
+                        SSS SAFETY — Admin
+                    </span>
+                    <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>
+                        <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>arrow_back</span>
+                        Back to Site
+                    </Link>
+                </div>
+                {children}
             </div>
-        </div>
+        </main>
     );
 }
