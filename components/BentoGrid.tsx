@@ -35,6 +35,7 @@ const BentoGrid = () => {
                 title="PROTOCOLS"
                 icon="v.2"
                 background="#ff7936"
+                textDark={true}
             />
         </div>
     );

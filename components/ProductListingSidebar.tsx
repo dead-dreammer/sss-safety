@@ -23,53 +23,113 @@ const ProductListingSidebar: React.FC<SidebarProps> = ({ filters, onFilterChange
     };
 
     return (
-        <aside className="w-full md:w-72 shrink-0 bg-black text-white p-6">
-            <div className="sticky top-32 space-y-10">
-                <section>
-                    <h3 className="font-headline font-bold text-xs uppercase tracking-widest mb-6 text-white">Structural Load</h3>
-                    <div className="space-y-4">
+        <aside style={{ width: '17rem', flexShrink: 0, background: '#0d0d0d', color: 'white', padding: '2rem' }}>
+            <div style={{ position: 'sticky', top: '6rem', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+                <div>
+                    <h3
+                        style={{
+                            fontFamily: "'Space Grotesk', sans-serif",
+                            fontWeight: 900,
+                            fontSize: '0.7rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.2em',
+                            color: 'white',
+                            marginBottom: '1.25rem',
+                        }}
+                    >
+                        Structural Load
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
                         {['HEAVY DUTY', 'INDUSTRIAL GRADE', 'TECHNICAL SPECS'].map((option) => (
-                            <label key={option} className="flex items-center gap-3 cursor-pointer group">
+                            <label key={option} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
                                 <input
                                     type="checkbox"
                                     checked={filters.structuralLoad.includes(option)}
                                     onChange={() => handleCheckboxChange(option)}
-                                    className="w-5 h-5 border-2 border-orange-600 accent-orange-600"
+                                    style={{ width: '1.1rem', height: '1.1rem', accentColor: 'var(--primary-fixed)', cursor: 'pointer' }}
                                 />
-                                <span className="font-headline text-sm font-bold tracking-tight group-hover:text-orange-600 transition-colors">
+                                <span
+                                    style={{
+                                        fontFamily: "'Space Grotesk', sans-serif",
+                                        fontSize: '0.8rem',
+                                        fontWeight: 700,
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.05em',
+                                        color: 'white',
+                                    }}
+                                >
                                     {option}
                                 </span>
                             </label>
                         ))}
                     </div>
-                </section>
+                </div>
 
-                <section>
-                    <h3 className="font-headline font-bold text-xs uppercase tracking-widest mb-6 text-white">Visibility Range</h3>
-                    <div className="space-y-4">
+                <div>
+                    <h3
+                        style={{
+                            fontFamily: "'Space Grotesk', sans-serif",
+                            fontWeight: 900,
+                            fontSize: '0.7rem',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.2em',
+                            color: 'white',
+                            marginBottom: '1.25rem',
+                        }}
+                    >
+                        Visibility Range
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
                         {['CLASS 1: LOW', 'CLASS 2: MEDIUM', 'CLASS 3: ULTRA-HIGH'].map((option) => (
-                            <label key={option} className="flex items-center gap-3 cursor-pointer group">
+                            <label key={option} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }}>
                                 <input
                                     type="radio"
                                     name="visibility"
                                     checked={filters.visibilityRange === option}
                                     onChange={() => handleRadioChange(option)}
-                                    className="w-5 h-5 border-2 border-orange-600 accent-orange-600"
+                                    style={{ width: '1.1rem', height: '1.1rem', accentColor: 'var(--primary-fixed)', cursor: 'pointer' }}
                                 />
-                                <span className="font-headline text-sm font-bold tracking-tight">
+                                <span
+                                    style={{
+                                        fontFamily: "'Space Grotesk', sans-serif",
+                                        fontSize: '0.8rem',
+                                        fontWeight: 700,
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '0.05em',
+                                        color: 'white',
+                                    }}
+                                >
                                     {option}
                                 </span>
                             </label>
                         ))}
                     </div>
-                </section>
+                </div>
 
-                <section className="bg-black p-6 border-l-4 border-orange-600">
-                    <p className="font-headline text-xs font-black uppercase mb-2">Compliance Alert</p>
-                    <p className="text-xs text-white leading-relaxed">
+                <div
+                    style={{
+                        background: '#0d0d0d',
+                        padding: '1.25rem',
+                        borderLeft: '4px solid var(--primary-fixed)',
+                    }}
+                >
+                    <p
+                        style={{
+                            fontFamily: "'Space Grotesk', sans-serif",
+                            fontSize: '0.7rem',
+                            fontWeight: 900,
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.1em',
+                            color: 'var(--primary-fixed)',
+                            marginBottom: '0.5rem',
+                        }}
+                    >
+                        Compliance Alert
+                    </p>
+                    <p style={{ fontSize: '0.75rem', color: '#aaaaaa', lineHeight: 1.6 }}>
                         All gear listed meets OSHA 1926.100(a) standards for industrial head and eye protection.
                     </p>
-                </section>
+                </div>
             </div>
         </aside>
     );

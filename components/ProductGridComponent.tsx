@@ -17,20 +17,61 @@ const ProductGridComponent: React.FC<ProductGridProps> = ({ products }) => {
     return (
         <div className="category-grid">
             {products.map((product) => (
-                <div key={product.id} className="category-card">
-                    <img src={product.image} alt={product.title} />
-                    <div className="category-label">
-                        <h3>{product.title}</h3>
-                        <p className="text-orange-400 font-bold">R{product.price}</p>
-                        <p className="text-xs text-white uppercase">{product.category}</p>
-                        <div className="flex gap-2 flex-wrap mb-2">
+                <div key={product.id} className="product-card">
+                    <img
+                        src={product.image}
+                        alt={product.title}
+                        className="product-card-image"
+                    />
+                    <div className="product-card-body">
+                        <p
+                            style={{
+                                fontFamily: "'Space Grotesk', sans-serif",
+                                fontSize: '0.7rem',
+                                fontWeight: 700,
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.15em',
+                                color: 'var(--primary-fixed)',
+                            }}
+                        >
+                            {product.category}
+                        </p>
+                        <h3
+                            style={{
+                                fontFamily: "'Space Grotesk', sans-serif",
+                                fontWeight: 900,
+                                fontSize: '1.1rem',
+                                textTransform: 'uppercase',
+                                letterSpacing: '-0.01em',
+                                color: 'white',
+                                lineHeight: 1.2,
+                            }}
+                        >
+                            {product.title}
+                        </h3>
+                        <div className="product-card-tags">
                             {product.tags.map((tag, idx) => (
-                                <span key={idx} className="px-2 py-1 bg-black text-xs font-headline font-bold uppercase">
+                                <span key={idx} className="product-card-tag">
                                     {tag}
                                 </span>
                             ))}
                         </div>
-                        <button className="btn btn-primary">Add to Cart</button>
+                        <div className="product-card-footer">
+                            <p
+                                style={{
+                                    fontFamily: "'Space Grotesk', sans-serif",
+                                    fontWeight: 900,
+                                    fontSize: '1.25rem',
+                                    color: 'var(--primary-fixed)',
+                                    letterSpacing: '-0.01em',
+                                }}
+                            >
+                                R{product.price.toFixed(2)}
+                            </p>
+                            <button className="btn btn-primary" style={{ padding: '0.6rem 1.1rem', fontSize: '0.75rem' }}>
+                                Add to Cart
+                            </button>
+                        </div>
                     </div>
                 </div>
             ))}

@@ -84,13 +84,22 @@ const ProductListing = () => {
     };
 
     return (
-        <main className="section-dark max-w-7xl mx-auto px-12 py-24 flex flex-col md:flex-row gap-12">
-            <ProductListingSidebar filters={filters} onFilterChange={handleFilterChange} />
-            <div className="flex-1">
-                <ProductHeader sortBy={sortBy} onSortChange={handleSortChange} />
-                <ProductGridComponent products={sortedProducts} />
+        <div className="section-dark" style={{ minHeight: '100vh' }}>
+            <div
+                className="flex flex-col md:flex-row gap-12"
+                style={{
+                    maxWidth: '88rem',
+                    margin: '0 auto',
+                    padding: '7rem 3rem 5rem',
+                }}
+            >
+                <ProductListingSidebar filters={filters} onFilterChange={handleFilterChange} />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                    <ProductHeader sortBy={sortBy} onSortChange={handleSortChange} />
+                    <ProductGridComponent products={sortedProducts} />
+                </div>
             </div>
-        </main>
+        </div>
     );
 };
 

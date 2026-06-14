@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import "tailwindcss";
 
 * {
   margin: 0;
@@ -73,7 +74,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 1.25rem 2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -85,7 +86,7 @@ nav {
   align-items: center;
   background: #000000;
   color: white;
-  padding-top: 6rem;
+  padding-top: 5rem;
   overflow: hidden;
 }
 
@@ -139,6 +140,7 @@ nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 
 .btn:hover {
@@ -155,6 +157,7 @@ nav {
 
 .btn-primary:hover {
   background: var(--primary-fixed-dim);
+  color: #000000;
 }
 
 .btn-secondary {
@@ -174,6 +177,7 @@ nav {
   letter-spacing: 0.2em;
   font-size: 0.85rem;
   color: #000000;
+  text-decoration: none;
   transition: color 0.25s ease, border-color 0.25s ease;
 }
 
@@ -195,6 +199,7 @@ nav {
   letter-spacing: 0.18em;
   font-size: 0.75rem;
   color: #ffffff;
+  text-decoration: none;
   transition: color 0.25s ease;
 }
 
@@ -224,8 +229,8 @@ section {
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .category-card {
@@ -262,10 +267,73 @@ section {
   text-align: center;
 }
 
+/* Product cards — separate from category cards to allow content below the image */
+.product-card {
+  background: #1e1e1e;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 121, 54, 0.12);
+  transition: border-color 0.3s ease, transform 0.25s ease;
+}
+
+.product-card:hover {
+  border-color: rgba(255, 121, 54, 0.45);
+  transform: translateY(-3px);
+}
+
+.product-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.product-card:hover .product-card-image {
+  transform: scale(1.05);
+}
+
+.product-card-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.product-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.product-card-tag {
+  padding: 0.2rem 0.6rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #aaaaaa;
+}
+
+.product-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-rows: repeat(2, 250px);
+  grid-template-rows: repeat(2, 250px);
   gap: 1.5rem;
 }
 
@@ -300,11 +368,15 @@ footer {
 
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-rows: auto;
+    grid-template-rows: auto;
   }
 
   .bento-item.large {
     grid-column: span 1;
     grid-row: span 1;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
   }
 }
