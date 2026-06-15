@@ -26,25 +26,42 @@ const credentialsProvider = (authOptions.providers[0] as any).options;
 describe('authOptions JWT callback', () => {
     const jwtCallback = authOptions.callbacks!.jwt!;
 
-    it('adds id and role to token when user signs in', async () => {
-        const token = {};
-        const user = { id: 'user-1', role: 'admin' };
-        const result = await jwtCallback({ token, user } as any);
+    beforeEach(() => vi.clearAllMocks());
+
+    it('sets token.id from user on initial sign-in', async () => {
+        vi.mocked(prisma.user.findUnique).mockResolvedValue({ role: 'admin' } as any);
+        const result = await jwtCallback({ token: {}, user: { id: 'user-1' } } as any);
         expect(result.id).toBe('user-1');
-        expect(result.role).toBe('admin');
     });
 
-    it('defaults role to "user" when not specified on the user object', async () => {
-        const token = {};
-        const user = { id: 'user-2' };
-        const result = await jwtCallback({ token, user } as any);
+    it('syncs role from DB on every call', async () => {
+        vi.mocked(prisma.user.findUnique).mockResolvedValue({ role: 'admin' } as any);
+        const result = await jwtCallback({ token: { id: 'user-1' } } as any);
+        expect(result.role).toBe('admin');
+        expect(prisma.user.findUnique).toHaveBeenCalledWith({
+            where: { id: 'user-1' },
+            select: { role: true },
+        });
+    });
+
+    it('defaults role to "user" when DB user not found', async () => {
+        vi.mocked(prisma.user.findUnique).mockResolvedValue(null);
+        const result = await jwtCallback({ token: { id: 'user-1' } } as any);
         expect(result.role).toBe('user');
     });
 
-    it('passes token through unchanged when no user (token refresh)', async () => {
-        const token = { id: 'user-1', role: 'admin', sub: 'user-1' };
+    it('reflects DB role change without re-login', async () => {
+        vi.mocked(prisma.user.findUnique).mockResolvedValue({ role: 'admin' } as any);
+        const token = { id: 'user-1', role: 'user' };
+        const result = await jwtCallback({ token } as any);
+        expect(result.role).toBe('admin');
+    });
+
+    it('returns token unchanged when no id present', async () => {
+        const token = { sub: 'abc' };
         const result = await jwtCallback({ token } as any);
         expect(result).toEqual(token);
+        expect(prisma.user.findUnique).not.toHaveBeenCalled();
     });
 });
 
