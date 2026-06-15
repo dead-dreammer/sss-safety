@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-export default function LoginPage() {
+function LoginForm() {
     const router = useRouter();
     const params = useSearchParams();
     const registered = params.get('registered');
@@ -39,9 +39,7 @@ export default function LoginPage() {
     };
 
     return (
-        <>
-            <Header />
-            <div style={{ minHeight: '100vh', background: '#111111', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8rem 1.5rem 4rem' }}>
+        <div style={{ minHeight: '100vh', background: '#111111', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8rem 1.5rem 4rem' }}>
                 <div style={{ width: '100%', maxWidth: '440px' }}>
 
                     <div style={{ marginBottom: '2.5rem' }}>
@@ -124,7 +122,17 @@ export default function LoginPage() {
                         </Link>
                     </p>
                 </div>
-            </div>
+        </div>
+    );
+}
+
+export default function LoginPage() {
+    return (
+        <>
+            <Header />
+            <Suspense>
+                <LoginForm />
+            </Suspense>
             <Footer />
         </>
     );
