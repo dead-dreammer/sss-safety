@@ -24,13 +24,7 @@ const NavActions: React.FC = () => {
                                 <span className="material-symbols-outlined" style={{ fontSize: '1.4rem' }}>admin_panel_settings</span>
                             </Link>
                         )}
-                        <button
-                            onClick={() => signOut({ callbackUrl: '/' })}
-                            title="Click to sign out"
-                            className="hover:opacity-70 transition-opacity active:scale-95 cursor-pointer"
-                            style={{ color: 'var(--primary-fixed)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
-                            aria-label="Sign out"
-                        >
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--primary-fixed)' }}>
                             <span className="material-symbols-outlined" style={{ fontSize: '1.4rem' }}>person</span>
                             <span style={{
                                 fontFamily: "'Space Grotesk', sans-serif",
@@ -41,6 +35,25 @@ const NavActions: React.FC = () => {
                                 lineHeight: 1,
                             }}>
                                 {session.user?.name?.split(' ')[0] ?? session.user?.email?.split('@')[0]}
+                            </span>
+                        </div>
+                        <button
+                            onClick={() => signOut({ callbackUrl: '/' })}
+                            title="Sign out"
+                            className="hover:opacity-70 transition-opacity active:scale-95 cursor-pointer"
+                            style={{ color: 'rgba(255,255,255,0.45)', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+                            aria-label="Sign out"
+                        >
+                            <span className="material-symbols-outlined" style={{ fontSize: '1.2rem' }}>logout</span>
+                            <span style={{
+                                fontFamily: "'Space Grotesk', sans-serif",
+                                fontSize: '0.7rem',
+                                fontWeight: 700,
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.08em',
+                                lineHeight: 1,
+                            }}>
+                                Sign Out
                             </span>
                         </button>
                     </div>
