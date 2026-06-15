@@ -3,9 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { useSession, signOut } from 'next-auth/react';
+import { useCart } from '../context/CartContext';
 
 const NavActions: React.FC = () => {
     const { data: session } = useSession();
+    const { itemCount, mounted } = useCart();
 
     return (
         <div className="flex items-center gap-6">
@@ -53,13 +55,35 @@ const NavActions: React.FC = () => {
                     </Link>
                 )}
 
-                <button
-                    className="hover:text-orange-600 transition-colors active:scale-95 cursor-pointer"
-                    style={{ color: '#000', display: 'flex', alignItems: 'center' }}
+                <Link
+                    href="/cart"
+                    className="hover:text-orange-600 transition-colors active:scale-95"
+                    style={{ color: '#000', display: 'flex', alignItems: 'center', position: 'relative' }}
                     aria-label="Cart"
                 >
                     <span className="material-symbols-outlined" style={{ fontSize: '1.4rem' }}>shopping_cart</span>
-                </button>
+                    {mounted && itemCount > 0 && (
+                        <span style={{
+                            position: 'absolute',
+                            top: '-5px',
+                            right: '-7px',
+                            background: 'var(--primary-fixed)',
+                            color: '#000',
+                            borderRadius: '50%',
+                            width: '17px',
+                            height: '17px',
+                            fontSize: '0.6rem',
+                            fontWeight: 900,
+                            fontFamily: "'Space Grotesk', sans-serif",
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            lineHeight: 1,
+                        }}>
+                            {itemCount > 9 ? '9+' : itemCount}
+                        </span>
+                    )}
+                </Link>
             </div>
             <Link href="/products" className="btn btn-primary">
                 GET PROTECTED

@@ -8,7 +8,7 @@ const Header = () => {
         { href: '/products', label: 'EQUIPMENT', active: true },
         { href: '#protocols', label: 'PROTOCOLS' },
         { href: '#training', label: 'TRAINING' },
-        { href: '#resources', label: 'RESOURCES' },
+        { href: '/contact', label: 'CONTACT' },
     ];
 
     return (
