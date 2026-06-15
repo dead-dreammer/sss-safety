@@ -360,19 +360,139 @@ footer {
   padding: 5rem 3rem;
 }
 
+/* ─── Responsive layout utilities ─── */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+.cart-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.cart-summary {
+  width: 340px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 5.5rem;
+}
+
+.product-sidebar {
+  width: 17rem;
+  flex-shrink: 0;
+}
+
+.form-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.admin-form-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.admin-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-sticky {
+  position: sticky;
+  top: 6rem;
+}
+
+/* ─── Breakpoints ─── */
+
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
 @media (max-width: 768px) {
+  nav {
+    padding: 0.875rem 1.25rem;
+  }
+
   .hero {
-    min-height: 500px;
+    min-height: 400px;
+    padding-top: 4.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-content {
+    padding: 0 1.25rem;
   }
 
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
+    gap: 1rem;
+  }
+
+  .bento-item {
+    padding: 1.75rem;
   }
 
   .bento-item.large {
     grid-column: span 1;
     grid-row: span 1;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  footer {
+    padding: 3rem 1.5rem;
+  }
+
+  .cart-layout {
+    flex-direction: column;
+  }
+
+  .cart-summary {
+    width: 100%;
+    position: static;
+    top: auto;
+  }
+
+  .product-sidebar {
+    width: 100%;
+    flex-shrink: 1;
+  }
+
+  .sidebar-sticky {
+    position: static;
+  }
+
+  .form-2col,
+  .admin-form-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 0.75rem 1rem;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 300px;
   }
 
   .category-grid {

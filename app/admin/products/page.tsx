@@ -7,6 +7,27 @@ export default async function AdminProductsPage() {
 
     return (
         <div>
+            {/* Back to dashboard */}
+            <Link
+                href="/admin"
+                style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem',
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontWeight: 700,
+                    fontSize: '0.72rem',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    color: 'rgba(255,255,255,0.35)',
+                    textDecoration: 'none',
+                    marginBottom: '1.5rem',
+                }}
+            >
+                <span className="material-symbols-outlined" style={{ fontSize: '1rem' }}>arrow_back</span>
+                Admin Dashboard
+            </Link>
+
             {/* Page header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
                 <div>
@@ -32,7 +53,8 @@ export default async function AdminProductsPage() {
             </div>
 
             {/* Table */}
-            <div style={{ background: '#111', border: '1px solid rgba(255,255,255,0.07)', overflow: 'hidden' }}>
+            <div className="admin-table-scroll">
+            <div style={{ background: '#111', border: '1px solid rgba(255,255,255,0.07)', minWidth: '680px' }}>
                 {/* Header row */}
                 <div style={{
                     display: 'grid',
@@ -164,6 +186,7 @@ export default async function AdminProductsPage() {
                         </div>
                     </div>
                 ))}
+            </div>
             </div>
         </div>
     );

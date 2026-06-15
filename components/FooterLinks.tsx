@@ -11,7 +11,7 @@ interface FooterLinksProps {
 
 const FooterLinks: React.FC<FooterLinksProps> = ({ links }) => {
     return (
-        <div className="flex flex-wrap justify-center gap-12">
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12">
             {links.map((link) => (
                 <a key={link.label} className="footer-link" href={link.href}>
                     {link.label}

@@ -36,7 +36,7 @@ export default function CartPageContent() {
     }
 
     return (
-        <div style={{ display: 'flex', gap: '3rem', alignItems: 'flex-start' }}>
+        <div className="cart-layout">
             {/* Cart items */}
             <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
@@ -142,7 +142,7 @@ export default function CartPageContent() {
             </div>
 
             {/* Order summary */}
-            <div style={{ width: '340px', flexShrink: 0, background: '#111', border: '1px solid rgba(255,255,255,0.08)', padding: '2rem', position: 'sticky', top: '5.5rem' }}>
+            <div className="cart-summary" style={{ background: '#111', border: '1px solid rgba(255,255,255,0.08)', padding: '2rem' }}>
                 <h2 style={{
                     fontFamily: "'Space Grotesk', sans-serif",
                     fontWeight: 900,

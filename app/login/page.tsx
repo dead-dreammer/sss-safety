@@ -46,7 +46,7 @@ function LoginForm() {
                         <Link href="/" style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--primary-fixed)', textDecoration: 'none', display: 'inline-block', marginBottom: '1.5rem' }}>
                             ← SSS SAFETY
                         </Link>
-                        <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, fontSize: '3rem', color: 'white', textTransform: 'uppercase', letterSpacing: '-0.03em', lineHeight: 1, marginBottom: '0.75rem' }}>
+                        <h1 style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, fontSize: 'clamp(2rem, 5vw, 3rem)', color: 'white', textTransform: 'uppercase', letterSpacing: '-0.03em', lineHeight: 1, marginBottom: '0.75rem' }}>
                             SIGN IN
                         </h1>
                         <div style={{ width: '3rem', height: '4px', backgroundColor: 'var(--primary-fixed)' }} />

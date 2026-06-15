@@ -26,8 +26,8 @@ const SectionCard: React.FC<SectionCardProps> = ({
     const buttonClass = backgroundColor === 'white' ? 'btn' : 'btn btn-primary';
 
     return (
-        <div className={`${bgClass} px-12 md:px-16 py-24 md:py-32 flex flex-col justify-center items-start`}>
-            <h2 className="text-5xl md:text-7xl font-black text-black uppercase font-headline tracking-tighter mb-6">
+        <div className={`${bgClass} px-6 sm:px-10 md:px-16 py-14 sm:py-20 md:py-24 lg:py-32 flex flex-col justify-center items-start`}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-black uppercase font-headline tracking-tighter mb-6">
                 {title}
             </h2>
             <div

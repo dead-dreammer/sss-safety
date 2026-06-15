@@ -31,7 +31,7 @@ const BentoLargeCard: React.FC<BentoLargeCardProps> = ({
                 <span className="text-sm font-bold uppercase tracking-widest" style={{ color: 'var(--primary-fixed)' }}>
                     {label}
                 </span>
-                <h3 className="text-5xl font-black font-headline uppercase tracking-tighter mt-2 text-white">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-black font-headline uppercase tracking-tighter mt-2 text-white">
                     {title}
                 </h3>
                 <p className="text-gray-300 mt-4 max-w-xs leading-relaxed">

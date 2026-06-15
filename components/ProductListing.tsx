@@ -41,8 +41,8 @@ const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
     return (
         <div className="section-dark" style={{ minHeight: '100vh' }}>
             <div
-                className="flex flex-col md:flex-row gap-12"
-                style={{ maxWidth: '88rem', margin: '0 auto', padding: '7rem 3rem 5rem' }}
+                className="flex flex-col md:flex-row gap-8 md:gap-12 px-4 sm:px-8 lg:px-12"
+                style={{ maxWidth: '88rem', margin: '0 auto', paddingTop: '5rem', paddingBottom: '3rem' }}
             >
                 <ProductListingSidebar filters={filters} onFilterChange={handleFilterChange} />
                 <div style={{ flex: 1, minWidth: 0 }}>

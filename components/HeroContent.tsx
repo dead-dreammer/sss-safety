@@ -22,7 +22,7 @@ const HeroContent: React.FC<HeroContentProps> = ({
     return (
         <div className="hero-content">
             <span className="hero-badge">{badge}</span>
-            <h1 className="text-7xl md:text-9xl font-black text-white leading-tight tracking-tighter mb-8 uppercase font-headline">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-tight tracking-tighter mb-5 sm:mb-8 uppercase font-headline">
                 {title} <br />
                 <span style={{ color: 'var(--primary-fixed)' }}>{titleHighlight}</span>
             </h1>

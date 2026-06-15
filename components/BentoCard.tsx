@@ -28,7 +28,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ label, title, subtitle, descripti
                 >
                     {label}
                 </span>
-                <h3 className="text-2xl font-black font-headline uppercase tracking-tight mt-3">
+                <h3 className="text-xl sm:text-2xl font-black font-headline uppercase tracking-tight mt-3">
                     {title}
                     {subtitle && <><br />{subtitle}</>}
                 </h3>
@@ -43,7 +43,7 @@ const BentoCard: React.FC<BentoCardProps> = ({ label, title, subtitle, descripti
             </div>
             {icon && (
                 <div className="flex justify-between items-end mt-auto">
-                    <span className="text-5xl font-black" style={{ color: accentColor }}>
+                    <span className="text-3xl sm:text-4xl md:text-5xl font-black" style={{ color: accentColor }}>
                         {icon}
                     </span>
                 </div>

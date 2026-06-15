@@ -127,7 +127,7 @@ export default function ProductForm({ product }: { product?: ProductFormData }) 
                 </div>
 
                 {/* Price + Category row */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="admin-form-2col">
                     <div>
                         <label style={labelStyle}>Price (R)</label>
                         <input

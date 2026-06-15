@@ -12,8 +12,8 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="bg-black border-t-4 border-orange-600 px-12 py-20">
-            <div className="max-w-7xl mx-auto flex justify-between items-center flex-wrap gap-8">
+        <footer className="bg-black border-t-4 border-orange-600 px-4 sm:px-8 lg:px-12 py-10 sm:py-14 lg:py-20">
+            <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center flex-wrap gap-8">
                 <FooterBranding
                     brand="SSS SAFETY"
                     copyright="© 2024 SSS SAFETY INDUSTRIAL CORP. ALL RIGHTS RESERVED."

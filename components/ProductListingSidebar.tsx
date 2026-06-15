@@ -23,8 +23,8 @@ const ProductListingSidebar: React.FC<SidebarProps> = ({ filters, onFilterChange
     };
 
     return (
-        <aside style={{ width: '17rem', flexShrink: 0, background: '#0d0d0d', color: 'white', padding: '2rem' }}>
-            <div style={{ position: 'sticky', top: '6rem', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+        <aside className="product-sidebar" style={{ background: '#0d0d0d', color: 'white', padding: '2rem' }}>
+            <div className="sidebar-sticky" style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
                 <div>
                     <h3
                         style={{

@@ -18,7 +18,7 @@ export default async function AdminLayout({ children }: { children: ReactNode })
 
     return (
         <main style={{ minHeight: '100vh', background: '#0d0d0d', color: 'white' }}>
-            <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '3rem' }}>
+            <div className="px-4 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-12" style={{ maxWidth: '1280px', margin: '0 auto' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', paddingBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
                     <span style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900, fontSize: '0.8rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--primary-fixed)' }}>
                         SSS SAFETY — Admin

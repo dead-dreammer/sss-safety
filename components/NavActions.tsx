@@ -10,8 +10,8 @@ const NavActions: React.FC = () => {
     const { itemCount, mounted } = useCart();
 
     return (
-        <div className="flex items-center gap-6">
-            <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 lg:gap-6">
+            <div className="flex items-center gap-2 sm:gap-3">
                 {session ? (
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                         {session.user?.role === 'admin' && (
@@ -26,7 +26,7 @@ const NavActions: React.FC = () => {
                         )}
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--primary-fixed)' }}>
                             <span className="material-symbols-outlined" style={{ fontSize: '1.4rem' }}>person</span>
-                            <span style={{
+                            <span className="hidden sm:inline" style={{
                                 fontFamily: "'Space Grotesk', sans-serif",
                                 fontSize: '0.75rem',
                                 fontWeight: 700,
@@ -45,7 +45,7 @@ const NavActions: React.FC = () => {
                             aria-label="Sign out"
                         >
                             <span className="material-symbols-outlined" style={{ fontSize: '1.2rem' }}>logout</span>
-                            <span style={{
+                            <span className="hidden sm:inline" style={{
                                 fontFamily: "'Space Grotesk', sans-serif",
                                 fontSize: '0.7rem',
                                 fontWeight: 700,
@@ -98,7 +98,7 @@ const NavActions: React.FC = () => {
                     )}
                 </Link>
             </div>
-            <Link href="/products" className="btn btn-primary">
+            <Link href="/products" className="btn btn-primary hidden sm:inline-flex">
                 GET PROTECTED
             </Link>
         </div>

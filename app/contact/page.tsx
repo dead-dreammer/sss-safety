@@ -14,8 +14,8 @@ export default function ContactPage() {
             <div style={{ background: '#0d0d0d', minHeight: '100vh', paddingTop: '6rem' }}>
 
                 {/* Page header */}
-                <div style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', paddingTop: '4rem', paddingBottom: '4rem' }}>
-                    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 3rem' }}>
+                <div style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', paddingTop: '3rem', paddingBottom: '3rem' }}>
+                    <div className="px-4 sm:px-8 lg:px-12" style={{ maxWidth: '1200px', margin: '0 auto' }}>
                         <p style={{
                             fontFamily: "'Space Grotesk', sans-serif",
                             fontWeight: 700,
@@ -43,7 +43,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Main content */}
-                <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '5rem 3rem', display: 'grid', gridTemplateColumns: '1fr 380px', gap: '5rem', alignItems: 'flex-start' }}>
+                <div className="contact-grid px-4 sm:px-8 lg:px-12 py-10 sm:py-14 lg:py-20" style={{ maxWidth: '1200px', margin: '0 auto' }}>
 
                     {/* Form */}
                     <div>
