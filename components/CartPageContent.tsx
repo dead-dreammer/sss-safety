@@ -94,7 +94,7 @@ export default function CartPageContent() {
                                     {item.title}
                                 </h3>
                                 {/* Quantity controls */}
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '0', border: '1px solid rgba(255,255,255,0.12)', display: 'inline-flex' }}>
+                                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0', border: '1px solid rgba(255,255,255,0.12)' }}>
                                     <button
                                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                         style={{ width: '32px', height: '32px', background: 'transparent', border: 'none', color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
