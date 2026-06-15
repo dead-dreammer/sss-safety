@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
@@ -29,7 +30,7 @@ const products = [
         price: 245.00,
         category: 'Heavy Duty',
         tags: ['Steel Toe', 'EH Rated'],
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC0prQSJKtNPAB78G9DjEvZnaYL8DQOX0Bjn6aPcPnhlT3ASktYxv6AHqNA_6pKtyu1oUeNjRiBGN8OES23td679JIBDGTNcZLEChMGOCJ2z34nn71bntcXh1myDsuNFKuX-3QSuw2ifBTc3IYLVzSlwWss2qVv_ug4ZB6enKMp51l0E01oeYQ27Ij-yG69RWIPEBNjpMv0YmpVflTDNHTQEMlx43jfaZAnfw-O4vU3TX_hpXTy19uR912BhIp6xuUjEtQ2Z2L69p8',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC0prQSJKtNPAB78G9DjEvZnaYL8DQOX0Bjn6aPcPnhlT3ASktYxv6AHqNA_6pKkwKW2z34nn71bntcXh1myDsuNFKuX-3QSuw2ifBTc3IYLVzSlwWss2qVv_ug4ZB6enKMp51l0E01oeYQ27Ij-yG69RWIPEBNjpMv0YmpVflTDNHTQEMlx43jfaZAnfw-O4vU3TX_hpXTy19uR912BhIp6xuUjEtQ2Z2L69p8',
     },
     {
         title: 'Guardian Flex Gloves',
@@ -43,7 +44,7 @@ const products = [
         price: 299.99,
         category: 'Heavy Duty',
         tags: ['5-Point System', 'ANSI Z359.11'],
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAFMJb_6ABYxzjPJMDcm4unjYwJQdjdx67YsZoLSC8o3JB1bAo3Z4epDjovIe5Sj4e9m6pEMLvHtnMrvs7qvG86ffKA6NoVUIidO-XMiMgi1mQpGL4ukzfzGZw4ua5SUJ5aqtlkwMfzTDrGw2EJArygMd348oIXvV55jXKs6F2Q1TfLpH4jfBH_BeT81eeFHFrFdWq2REUUsVRjjh08MSRqPtTn6S-vXRm8d7Vi8m9lp6hPl7gUVaAdBcylPbPnzbSONEq0hpATlo0',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAFMJb_6ABYxzjPJMDcm4unjYwJQdjdx67YsZoLSC8o3JB1bAo3Z4epDjovIe5Sj4e9m6pEMLvHtnMrvs7qvG86ffKA6NoVUIidO-XMiMgi1mQpGL4ukzfzGZw4ua5SUJ5aqtlkwMfzTDrGw2EJArygMd348oIXvV55jXKs6F2Q1TfLpH4jfBH_BeT81eeFWq2REUUsVRjjh08MSRqPtTn6S-vXRm8d7Vi8m9lp6hPl7gUVaAdBcylPbPnzbSONEq0hpATlo0',
     },
 ];
 
@@ -54,6 +55,30 @@ async function main() {
         await prisma.product.create({ data: product });
     }
     console.log(`Seeded ${products.length} products.`);
+
+    console.log('Seeding admin user...');
+    const adminEmail = process.env.ADMIN_EMAIL ?? 'admin@sss-safety.com';
+    const adminPassword = process.env.ADMIN_PASSWORD ?? 'Admin1234!';
+
+    const existing = await prisma.user.findUnique({ where: { email: adminEmail } });
+    if (existing) {
+        await prisma.user.update({
+            where: { email: adminEmail },
+            data: { role: 'admin', passwordHash: await bcrypt.hash(adminPassword, 12) },
+        });
+        console.log(`Updated existing user ${adminEmail} → role: admin`);
+    } else {
+        await prisma.user.create({
+            data: {
+                name: 'Admin',
+                email: adminEmail,
+                passwordHash: await bcrypt.hash(adminPassword, 12),
+                role: 'admin',
+            },
+        });
+        console.log(`Created admin user: ${adminEmail}`);
+    }
+    console.log('Done. Sign in with the admin credentials, then navigate to /admin.');
 }
 
 main()
