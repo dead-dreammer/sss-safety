@@ -1,23 +1,5 @@
-import { getToken } from 'next-auth/jwt';
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+// Admin route protection is handled by app/admin/layout.tsx via getServerSession.
+// API route protection is handled by requireAdmin() in each route handler.
+// This file is intentionally empty — no Edge Runtime JWT decoding needed.
 
-export async function middleware(req: NextRequest) {
-    const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
-
-    if (!token) {
-        const loginUrl = new URL('/login', req.url);
-        loginUrl.searchParams.set('callbackUrl', req.nextUrl.pathname);
-        return NextResponse.redirect(loginUrl);
-    }
-
-    if (req.nextUrl.pathname.startsWith('/admin') && token.role !== 'admin') {
-        return NextResponse.redirect(new URL('/', req.url));
-    }
-
-    return NextResponse.next();
-}
-
-export const config = {
-    matcher: ['/admin/:path*'],
-};
+export const config = { matcher: [] };

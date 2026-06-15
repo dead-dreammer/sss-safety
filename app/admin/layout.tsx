@@ -9,7 +9,10 @@ export const metadata = { title: 'Admin — SSS Safety' };
 export default async function AdminLayout({ children }: { children: ReactNode }) {
     const session = await getServerSession(authOptions);
 
-    if (!session || session.user?.role !== 'admin') {
+    if (!session) {
+        redirect('/login?callbackUrl=/admin');
+    }
+    if (session.user?.role !== 'admin') {
         redirect('/');
     }
 
